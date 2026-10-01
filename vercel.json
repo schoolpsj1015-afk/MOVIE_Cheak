@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/boxoffice",
+      "destination": "/api/boxoffice"
+    },
+    {
+      "source": "/api/movie-info",
+      "destination": "/api/movie-info"
+    },
+    {
+      "source": "/api/movie-ai-insight",
+      "destination": "/api/movie-ai-insight"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
