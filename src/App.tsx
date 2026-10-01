@@ -130,7 +130,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0d14] text-slate-100 flex flex-col font-sans pb-16">
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] flex flex-col font-sans pb-16">
       {/* Header / Navbar */}
       <Navbar
         selectedDate={selectedDate}
@@ -162,25 +162,25 @@ export default function App() {
 
         {/* Main Content Area */}
         {isLoading ? (
-          <div className="py-24 flex flex-col items-center justify-center text-slate-400 gap-3 bg-[#121420] border-2 border-slate-800">
-            <Loader2 className="w-10 h-10 animate-spin text-[#8400FF]" />
-            <p className="text-base font-black text-white">
+          <div className="py-24 flex flex-col items-center justify-center text-[#86868b] gap-3 bg-white border border-[#e0e0e0] rounded-2xl">
+            <Loader2 className="w-8 h-8 animate-spin text-[#0066cc]" />
+            <p className="text-sm font-semibold text-[#1d1d1f]">
               {formatKoreanDate(selectedDate)} 박스오피스를 불러오는 중입니다...
             </p>
-            <p className="text-xs font-black text-slate-400">KOBIS 영진위 서버와 통신 중</p>
+            <p className="text-xs text-[#86868b]">KOBIS 영진위 공식 서버와 통신 중</p>
           </div>
         ) : error ? (
-          <div className="py-16 px-6 bg-[#121420] border-2 border-rose-600 text-center space-y-4 max-w-xl mx-auto">
-            <AlertCircle className="w-12 h-12 text-rose-500 mx-auto" />
+          <div className="py-16 px-6 bg-white border border-rose-300 rounded-2xl text-center space-y-4 max-w-xl mx-auto shadow-sm">
+            <AlertCircle className="w-10 h-10 text-rose-500 mx-auto" />
             <div>
-              <h3 className="text-lg font-black text-white">데이터 조회 실패</h3>
-              <p className="text-sm font-black text-rose-400 mt-1">{error}</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f]">데이터 조회 실패</h3>
+              <p className="text-sm text-rose-600 mt-1">{error}</p>
             </div>
             <button
               onClick={loadBoxOfficeData}
-              className="px-4 py-2 bg-[#8400FF] hover:bg-[#7000DB] text-white border border-white text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 transition"
+              className="px-4 py-2 bg-[#0066cc] hover:bg-[#0071e3] text-white rounded-full text-xs font-semibold tracking-tight inline-flex items-center gap-2 transition active:scale-95 shadow-sm"
             >
-              <RefreshCw className="w-4 h-4" />
+              <RefreshCw className="w-3.5 h-3.5" />
               다시 시도
             </button>
           </div>
@@ -198,11 +198,11 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-12 border-t-2 border-slate-800 py-8 text-center text-xs font-black text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="mt-16 border-t border-[#e0e0e0] bg-[#f5f5f7] py-10 text-center text-xs text-[#86868b]">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 font-normal">
           <p>© {new Date().getFullYear()} KOBIS 일일 박스오피스. 영화관입장권통합전산망 API 연동.</p>
-          <p className="text-slate-400">
-            주 색상: <span className="text-[#8400FF] font-impact text-sm">#8400FF</span> &bull; 폰트: <span className="font-impact text-sm">IMPACT</span> &amp; 한국어 <span className="font-black text-white">BLACK (900)</span>
+          <p className="text-[#86868b]">
+            Design Style: <span className="text-[#0066cc] font-medium">Apple Design System</span> &bull; Action Blue <span className="text-[#0066cc] font-semibold">#0066cc</span>
           </p>
         </div>
       </footer>

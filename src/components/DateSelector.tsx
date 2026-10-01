@@ -48,21 +48,21 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
   ];
 
   return (
-    <div className="bg-[#121420] border-2 border-[#8400FF] p-4 sm:p-5">
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+    <div className="bg-white border border-[#e0e0e0] rounded-2xl p-5 sm:p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-5">
         {/* Left: Datepicker and Step Navigation */}
-        <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap">
+        <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap">
           <button
             onClick={handlePrevDay}
             disabled={isLoading}
-            className="p-2.5 bg-[#1c1f30] hover:bg-[#8400FF] text-white border-2 border-slate-700 hover:border-white transition disabled:opacity-40"
+            className="w-10 h-10 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] border border-[#e0e0e0] flex items-center justify-center transition active:scale-95 disabled:opacity-40"
             title="이전 날짜"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
           </button>
 
           <div className="relative flex-1 sm:flex-initial min-w-[210px]">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#8400FF]">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#0066cc]">
               <CalendarIcon className="w-4 h-4" />
             </div>
             <input
@@ -74,30 +74,30 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
                   onDateChange(e.target.value);
                 }
               }}
-              className="w-full pl-10 pr-4 py-2.5 bg-[#0b0d14] border-2 border-slate-700 focus:border-[#8400FF] text-white font-impact tracking-wider text-base focus:outline-none transition [color-scheme:dark]"
+              className="w-full pl-10 pr-4 py-2 bg-[#f5f5f7] border border-[#e0e0e0] rounded-full text-[#1d1d1f] font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#0066cc] focus:bg-white transition"
             />
           </div>
 
           <button
             onClick={handleNextDay}
             disabled={isLoading || isNextDisabled}
-            className="p-2.5 bg-[#1c1f30] hover:bg-[#8400FF] text-white border-2 border-slate-700 hover:border-white transition disabled:opacity-30"
+            className="w-10 h-10 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] border border-[#e0e0e0] flex items-center justify-center transition active:scale-95 disabled:opacity-30"
             title="다음 날짜 (어제까지 가능)"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
           </button>
 
           {/* Current Date Display */}
-          <div className="hidden sm:block text-slate-300 pl-2">
-            <span className="text-slate-400 text-xs font-bold block">조회 대상일</span>
-            <span className="text-white font-black text-sm">{formatKoreanDate(selectedDate)}</span>
+          <div className="hidden sm:block text-[#1d1d1f] pl-2">
+            <span className="text-[#86868b] text-xs font-normal block">조회 대상일</span>
+            <span className="text-[#1d1d1f] font-semibold text-sm tracking-tight">{formatKoreanDate(selectedDate)}</span>
           </div>
         </div>
 
         {/* Right: Presets */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
-          <span className="text-xs font-black text-slate-400 mr-1 flex items-center gap-1 shrink-0 uppercase tracking-wider">
-            <Clock className="w-3.5 h-3.5 text-[#8400FF]" />
+          <span className="text-xs font-medium text-[#86868b] mr-1 flex items-center gap-1 shrink-0">
+            <Clock className="w-3.5 h-3.5 text-[#0066cc]" />
             빠른 선택:
           </span>
           {presets.map((preset) => {
@@ -107,10 +107,10 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
                 key={preset.label}
                 onClick={() => onDateChange(preset.date)}
                 disabled={isLoading}
-                className={`px-3 py-1.5 text-xs font-black whitespace-nowrap transition border-2 ${
+                className={`px-3.5 py-1.5 text-xs font-normal rounded-full whitespace-nowrap transition active:scale-95 ${
                   isSelected
-                    ? 'bg-[#8400FF] border-white text-white font-black'
-                    : 'bg-[#181a26] hover:bg-slate-800 border-slate-700 text-slate-300 hover:text-white font-black'
+                    ? 'bg-[#0066cc] text-white font-semibold shadow-sm'
+                    : 'bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f]'
                 }`}
               >
                 {preset.label}
@@ -121,10 +121,10 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
       </div>
 
       {/* Info notice */}
-      <div className="mt-3 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400 font-bold">
-        <Info className="w-3.5 h-3.5 text-[#8400FF] shrink-0" />
+      <div className="mt-4 pt-3 border-t border-[#f0f0f0] flex items-center gap-2 text-xs text-[#86868b]">
+        <Info className="w-3.5 h-3.5 text-[#0066cc] shrink-0" />
         <span>
-          일일 박스오피스는 전일(어제) 집계분까지 제공됩니다. (최신 가능일: <strong className="text-white font-impact tracking-wider">{yesterday}</strong>)
+          일일 박스오피스는 영진위 공식 API 집계 특성상 전일(어제)까지 제공됩니다. (선택 가능 상한: <strong className="text-[#1d1d1f] font-semibold">{yesterday}</strong>)
         </span>
       </div>
     </div>
